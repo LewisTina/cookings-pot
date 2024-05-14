@@ -1,28 +1,47 @@
-// controllers/categorieController.js
-const Categorie = require('/models/Categorie');
+const Categorie = require('../models/Categorie');
 
 exports.getCategories = async (req, res) => {
-    const categories = await Categorie.find();
-    res.json(categories);
+    try {
+        const categories = await Categorie.find();
+        res.json(categories);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
 };
 
 exports.getCategorieById = async (req, res) => {
-    const categorie = await Categorie.findById(req.params.id);
-    res.json(categorie);
+    try {
+        const categorie = await Categorie.findById(req.params.id);
+        res.json(categorie);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
 };
 
 exports.createCategorie = async (req, res) => {
     const categorie = new Categorie(req.body);
-    await categorie.save();
-    res.json(categorie);
+    try {
+        await categorie.save();
+        res.status(201).json(categorie);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
 };
 
 exports.updateCategorie = async (req, res) => {
-    const categorie = await Categorie.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    res.json(categorie);
+    try {
+        const categorie = await Categorie.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        res.json(categorie);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
 };
 
 exports.deleteCategorie = async (req, res) => {
-    await Categorie.findByIdAndDelete(req.params.id);
-    res.json({ message: 'Categorie supprimée' });
+    try {
+        await Categorie.findByIdAndDelete(req.params.id);
+        res.json({ message: 'Categorie supprimée' });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
 };

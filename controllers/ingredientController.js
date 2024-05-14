@@ -1,5 +1,5 @@
 // controllers/ingredientController.js
-const Ingredient = require('/models/Ingredient');
+const Ingredient = require('../models/Ingredient');
 
 exports.getIngredients = async (req, res) => {
     const ingredients = await Ingredient.find();

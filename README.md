@@ -1,1 +1,1 @@
-# blog-recette-api
+# projet-recette
