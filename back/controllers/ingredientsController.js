@@ -1,4 +1,3 @@
-// controllers/ingredientController.js
 const Ingredient = require('../models/Ingredient');
 
 exports.getIngredients = async (req, res) => {
