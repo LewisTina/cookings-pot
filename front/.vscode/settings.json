@@ -1,0 +1,5 @@
+{
+    "editor.wordWrap": "on",
+    "editor.wordWrapColumn": 80,
+    "scss.lint.unknownAtRules": "ignore"
+}

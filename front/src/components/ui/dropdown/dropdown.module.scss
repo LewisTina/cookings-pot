@@ -1,0 +1,32 @@
+.menuWrapper {
+    @apply absolute left-0 shadow-lg w-full bg-white-1 rounded-xl max-h-96 overflow-auto divide-y-2 divide-neutral-3 border-2 border-neutral-3 z-10;
+}
+
+.medium {
+    @apply w-96 py-3 px-4 bg-transparent transition-all rounded-xl;
+    @apply smd:w-full;
+
+    & ~ .menuWrapper {
+        &.top {
+            @apply translate-y-2;
+        }
+    
+        &.bottom {
+            @apply -translate-y-[calc(100%+4.5rem)];
+        }
+    }
+}
+
+.small {
+    @apply w-fit bg-transparent m-0 rounded-full py-1.5 text-sm pl-5 pr-3 gap-8;
+
+    & ~ .menuWrapper {
+        &.top {
+            @apply translate-y-1;
+        }
+    
+        &.bottom {
+            @apply -translate-y-[calc(100%+3rem)];
+        }
+    }
+}

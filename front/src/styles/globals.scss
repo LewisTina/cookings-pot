@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Initialise Git default use system font */
+  --system-ui-font: -apple-system,BlinkMacSystemFont, "Noto Sans", Ubuntu, Cantarell, sans-serif, "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+
+
+  /*  Global color configuration */
+
+  --primary-1: 255, 53, 170;
+  
+  --secondary-1: 255, 56, 56;
+  --secondary-2: 252, 232, 58;
+  --secondary-3: 255, 179, 2;
+  --secondary-4: 68, 190, 0;
+  /*  -------------------------------------------------------------------------------------------------------------------------------  */
+    
+    /* Depth shadow box */
+    
+    --depth-1: 0px 8px 16px -8px rgba(0, 0, 0, 0.2);
+    --depth-2: 0px 24px 24px -16px rgba(0, 0, 0, 0.2);
+    --depth-3: 0px 24px 24px -16px rgba(0, 0, 0, 10);
+
+    /*  -------------------------------------------------------------------------------------------------------------------------------  */
+
+}
+
+html.light {
+    /*  Create light mode colors variants */
+
+    --white: 255, 255, 255;
+    --black: 0, 0, 0;
+    --neutral-0: 252, 252, 253;
+    --neutral-1: 236, 239, 247;
+    --neutral-2: 244, 245, 246;
+    --neutral-3: 230, 232, 236;
+    --neutral-4: 177, 181, 195;
+    --neutral-5: 119, 126, 144;
+    --neutral-6: 53, 57, 69;
+    --neutral-7: 35, 38, 47;
+    --neutral-8: 20, 20, 22;
+    --white-1: 255, 255, 255;
+    --black-1: 0, 0, 0;
+    
+    /*  -------------------------------------------------------------------------------------------------------------------------------  */
+  
+}
+
+html.dark {
+    /*  Create dark mode colors variants */
+
+    --white: 0, 0, 0;
+    --black: 255, 255, 255;
+
+    --neutral-0: 20, 20, 22;
+    --neutral-1: 30, 39, 77;
+    --neutral-2: 18, 18, 18;
+    --neutral-3: 35, 38, 47;
+    --neutral-4: 177, 181, 195;
+    --neutral-5: 119, 126, 144;
+    --neutral-6: 230, 232, 236;
+    --neutral-7: 252, 252, 253;
+    --black-1: 255, 255, 255;
+    --white-1: 0, 0, 0;
+
+    /*  -------------------------------------------------------------------------------------------------------------------------------  */
+}
+
+body {
+  font-family: var(--system-ui-font);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.tooltip {
+  position: relative;
+  overflow: visible;
+
+  &::after{
+    display: none;
+    z-index: 99;
+    white-space: nowrap;
+    content: attr(data-text);
+    position: absolute;
+    left: calc(100% + 5px);
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.5rem 1.5rem;
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: 10px 0 50px rgba(0, 0, 0, 0.2);
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 5px;
+  }
+
+  &:before {
+    display: none;
+    z-index: 99;
+    content: "";
+    position: absolute;
+    left: calc(100%);
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.4s;
+    border-top: 5px solid transparent;
+    border-right: 6px solid rgba(0, 0, 0, 0.8);
+    border-bottom: 5px solid transparent;
+  }
+
+  &.end::after{
+    right: calc(100% + 5px) !important;
+    left: unset !important;
+  }
+
+  &.end:before {
+    right: calc(100%) !important;
+    left: unset !important;
+    transform: rotate(180deg);
+  }
+
+  &:hover::after, &:hover::before{
+    display: block;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-left: solid 2px var(--neutral-3);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--neutral-4);
+  border-left: 4px solid transparent;
+  border-right: 2px solid transparent;
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.insideScrollBar::-webkit-scrollbar-thumb {
+  border: 4px solid transparent;
+  border-radius: 999px;
+}
+
+.insideScrollBar::-webkit-scrollbar-track {
+  border-left: none;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--neutral-5);
+}
+
+input[type=number] {
+  appearance: none;
+  -moz-appearance: textfield;
+}
+
+select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

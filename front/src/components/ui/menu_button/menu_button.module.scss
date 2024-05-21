@@ -1,0 +1,7 @@
+.menuButton {
+    @apply flex items-center gap-4 px-6 py-3 w-full text-sm font-semibold hover:bg-neutral-1 text-neutral-6 transition-all duration-300 overflow-hidden truncate;
+
+    &.active {
+       @apply bg-neutral-1; 
+    }
+}

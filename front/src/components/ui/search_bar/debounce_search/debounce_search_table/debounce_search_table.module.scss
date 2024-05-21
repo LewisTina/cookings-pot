@@ -1,0 +1,7 @@
+.frame {
+    @apply bg-transparent text-sm outline-none flex justify-between w-full py-1 pr-8 pl-2 border-[2.5px] border-neutral-4 rounded-l-lg rounded-r-3xl truncate disabled:cursor-not-allowed
+}
+
+.button {
+    @apply absolute right-1 top-1
+}

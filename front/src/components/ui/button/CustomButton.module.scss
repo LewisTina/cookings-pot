@@ -1,0 +1,28 @@
+.buttonLayout {
+    @apply flex items-center rounded-full font-semibold w-fit transition-all duration-300 px-8 py-3 gap-4;
+
+    &:hover {
+        @apply ring;
+    }
+
+    &:disabled {
+        @apply opacity-75;
+    }
+
+    &.small {
+        @apply px-4 gap-8 py-1.5 text-sm;
+
+        &.left {
+            @apply pl-1.5 pr-5 gap-4;
+        }
+    }
+
+    &.neutral {
+        @apply bg-black-1 text-white-1
+    }
+
+    &.left {
+        @apply flex-row-reverse pl-3
+    }
+
+}

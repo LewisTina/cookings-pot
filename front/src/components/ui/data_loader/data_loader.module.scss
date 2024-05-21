@@ -1,0 +1,51 @@
+.dataLoader{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    max-height: 5em;
+}
+
+.fakeImage{
+    height: 90%;
+    aspect-ratio: 1/1 !important;
+    border-radius: 10%;
+    background: linear-gradient(to left,transparent, #bbb, transparent);
+    background-size: 200%;
+    animation: 1s transition infinite alternate ease-in-out;
+}
+
+.fakeData{
+    width: 100%;
+
+    div {
+        margin: 0.5rem 0rem;
+        background: linear-gradient(to left,transparent, #bbb, transparent);
+        background-size: 200%;
+        animation: 2s transition infinite alternate ease-in-out;
+        
+    }
+}
+
+.fakeTitle{
+    width: 70%;
+    height: 1.5em;
+    border-radius: .35em;
+}
+
+.fakeText{
+    width: 100%;
+    height: .75em;
+    border-radius: .35em;
+}
+
+@keyframes transition {
+    from{
+        background-position: right;
+    }
+
+    to {
+        background-position: left;
+
+    }
+}
