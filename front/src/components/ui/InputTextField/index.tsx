@@ -27,12 +27,11 @@ export default function InputTextField(props: React.PropsWithChildren<FormInput>
     console.log(label)
 
     return(
-        <div className={`w-full flex flex-col`}>
+        <div className={`w-full flex flex-col gap-1`}>
               {label ?
                 <label 
                     htmlFor={props.id ? props.id : randomString} 
-                    className='font-semibold bg-transparent text-black-1'
-                    style={{margin: "0.5rem 1rem"}}> 
+                    className='font-semibold bg-transparent text-black-1'> 
                     {label} 
                     {formError ? " *" : ""}
                 </label> :
@@ -51,9 +50,9 @@ export default function InputTextField(props: React.PropsWithChildren<FormInput>
                     transition-all
                     rounded-xl
                     focus:ring focus:ring-secondary focus:ring-offset 
-                    focus:border-primary-1
-                    w-96 smd:max-w-full smd:w-full
-                    outline-none 
+                    focus:border-blue-400
+                    w-96 -ml-4 smd:max-w-full smd:w-full
+                    outline-none
                     ${(formError != undefined) 
                         && (formError[name] 
                             ? "focus:border-secondary-1 ring-secondary-1/50 ring-offset ring" : ""

@@ -1,0 +1,37 @@
+.frame {
+    @apply w-full flex min-h-[100dvh] h-full overflow-auto mdd:h-[unset] mdd:pr-0 mdd:pt-0 mdd:min-h-[unset] mdd:overflow-visible;
+
+    & > div {
+        @apply w-1/2
+    }
+}
+
+.left {
+    @apply flex-1 bg-cover relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.30);
+        z-index: 1;
+      }
+}
+
+.formContent {
+    @apply flex flex-col p-20 h-full overflow-auto smd:py-20 smd:px-4 smd:w-full md:w-fit md:mx-auto bg-white-1 border-l border-neutral-3;
+
+    form {
+        @apply flex flex-col gap-8 my-auto w-fit;
+    }
+}
+
+.fields {
+    @apply flex flex-col gap-4;
+}
+
+.title {
+    @apply capitalize text-[2.5rem] font-bold text-neutral-6 mdd:text-center;
+
+    white-space: pre-line;
+}

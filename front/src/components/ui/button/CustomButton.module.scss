@@ -1,5 +1,5 @@
 .buttonLayout {
-    @apply flex items-center rounded-full font-semibold w-fit transition-all duration-300 px-8 py-3 gap-4;
+    @apply flex items-center justify-center rounded-full w-fit font-semibold transition-all duration-300 px-8 py-3 gap-4;
 
     &:hover {
         @apply ring;
@@ -17,8 +17,16 @@
         }
     }
 
+    &.full {
+        @apply -ml-4 w-96
+    }
+
     &.neutral {
         @apply bg-black-1 text-white-1
+    }
+
+    &.primary {
+        @apply bg-primary-1 text-white-1
     }
 
     &.left {

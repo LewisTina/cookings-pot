@@ -2,9 +2,9 @@ import Icon from '../../Icons';
 import styles from './CustomButton.module.scss'
 
 type Props = {
-    theme?: "neutral" | "custom";
+    theme?: "neutral" | "custom" | "primary";
     disabled?: boolean;
-    size?: "medium" | "small";
+    size?: "medium" | "small" | "full";
     icon?: string;
     iconPosition?: "right" | "left";
     iconClassName?: string;

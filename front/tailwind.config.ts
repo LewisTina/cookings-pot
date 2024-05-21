@@ -10,7 +10,10 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        'login-cover-bg': "url('/login_illustration.svg')",
+        'login-cover-bg-1': "url('/8874.jpg')",
+        'login-cover-bg-2': "url('/8669.jpg')",
+        'login-cover-bg-3': "url('/7110.jpg')",
+        'login-cover-bg-4': "url('/3215.jpg')",
       },
     
       screens: {
