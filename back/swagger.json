@@ -1,0 +1,20 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Cooking Pot's Blog Api Documentation",
+        "description": "\tThis is the Cooking Pot's Blog API. All requests regarding the app can be found here. In general, most methods require you to be an active user to access them. You will therefore find a login point which allows you to generate a credential to use for the connection using your access information",
+        "version": "1.0.0"
+    },
+    "produces": ["application/json"],
+    "paths": {
+   },
+
+  "securityDefinitions": {
+    "bearerAuth": {
+      "type": "http",
+      "scheme": "bearer",
+      "bearerFormat": "JWT",
+      "in":"header"
+    }
+  }
+ }
