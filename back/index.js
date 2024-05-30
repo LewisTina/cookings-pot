@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
+const cors = require('cors');
 
 const membersRoutes = require('./routes/membersRoutes');
 const categoriesRoutes = require('./routes/categoriesRoutes');
@@ -25,6 +26,10 @@ const port = 2780;
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(bodyParser.json());
+app.use(cors({
+  origin: '*'
+}));
+
 
 app.use('/members', membersRoutes);
 app.use('/categories', categoriesRoutes);

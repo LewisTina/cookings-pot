@@ -18,19 +18,19 @@ export default function AlertBanner(props: AlertBannerProps) {
 
     const getStatusElements = () : statusElement => {
         if(status >= 200 && status <= 209) {
-            return {theme: "secondary-4", icon: "CheckCircleIcon", label: "success"}
+            return {theme: "secondary-4", icon: "CheckCircleIcon", label: "Opération réussi"}
         }
 
         else if(status >= 400 && status <= 499) {
-            return {theme: "secondary-3", icon: "InformationCircleIcon", label: "request_error"}
+            return {theme: "secondary-3", icon: "InformationCircleIcon", label: "Erreur lors de la requête"}
         }
         
         else if(status >= 500 && status <= 599) {
-            return {theme: "secondary-1", icon: "XCircleIcon", label: "server_error"}
+            return {theme: "secondary-1", icon: "XCircleIcon", label: "Erreur de serveur"}
         }
 
         else {
-            return {theme: "primary-1", icon: "ExclamationCircleIcon", label: "info"}
+            return {theme: "primary-1", icon: "ExclamationCircleIcon", label: "Information"}
         }
     }
 

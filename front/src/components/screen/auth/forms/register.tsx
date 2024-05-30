@@ -14,14 +14,14 @@ export default function RegisterFrom() {
     const router = useRouter()
     const searchParams = useSearchParams()
     const previousRouter = searchParams.get('redirect')
-    const { login } = useUser()
+    const { register: registerMember } = useUser()
 
     const {
       data,
       isLoading,
       isSuccess,
       mutateAsync
-      } = useMutation(login)
+      } = useMutation(registerMember)
 
     const onSubmit = async (bodyData: any) => {
         await mutateAsync(bodyData)
@@ -30,16 +30,10 @@ export default function RegisterFrom() {
 
     useEffect(() => {
         if (isSuccess) {
-            if (data.status == 200) {
-                Cookies.set('user_credential', data.data.token.access_token);
+            if (data.status == 201) {
+                Cookies.set('credential', data.data.token);
                 setTimeout(() => {
-                    if(!!previousRouter){
-                        router.replace(previousRouter)
-                    }
-
-                    else{
-                        router.replace("/")
-                    }
+                    router.replace("/")
                 }, 1000)
             }
         }

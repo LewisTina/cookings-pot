@@ -9,6 +9,10 @@
         @apply opacity-75;
     }
 
+    &.medium {
+        @apply px-6 gap-4 py-2 text-sm;
+    }
+
     &.small {
         @apply px-4 gap-8 py-1.5 text-sm;
 
@@ -26,7 +30,7 @@
     }
 
     &.primary {
-        @apply bg-primary-1 text-white-1
+        @apply bg-primary-1 text-white
     }
 
     &.left {

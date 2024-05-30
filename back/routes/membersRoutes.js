@@ -5,7 +5,7 @@ const membreController = require('../controllers/membresController');
 router.get('/', membreController.getMembres);
 router.get('/:id', membreController.getMembreById);
 router.post('/login', membreController.getMembreByEmailAndPassword);
-router.post('/', membreController.createMembre);
+router.post('/register', membreController.createMembre);
 router.put('/:id', membreController.updateMembre);
 router.delete('/:id', membreController.deleteMembre);
 

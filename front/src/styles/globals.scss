@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Galada&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,7 +7,7 @@
 :root {
   /* Initialise Git default use system font */
   --system-ui-font: -apple-system,BlinkMacSystemFont, "Noto Sans", Ubuntu, Cantarell, sans-serif, "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-
+  --galada: "Galada", cursive;
 
   /*  Global color configuration */
 
@@ -26,6 +28,8 @@
     /*  -------------------------------------------------------------------------------------------------------------------------------  */
 
 }
+
+
 
 html.light {
     /*  Create light mode colors variants */
@@ -125,37 +129,6 @@ body {
   &:hover::after, &:hover::before{
     display: block;
   }
-}
-
-::-webkit-scrollbar {
-  width: 14px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: transparent;
-  border-left: solid 2px var(--neutral-3);
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--neutral-4);
-  border-left: 4px solid transparent;
-  border-right: 2px solid transparent;
-  border-top: 2px solid transparent;
-  border-bottom: 2px solid transparent;
-  background-clip: content-box;
-}
-
-.insideScrollBar::-webkit-scrollbar-thumb {
-  border: 4px solid transparent;
-  border-radius: 999px;
-}
-
-.insideScrollBar::-webkit-scrollbar-track {
-  border-left: none;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--neutral-5);
 }
 
 input[type=number] {

@@ -8,17 +8,21 @@ export interface ServiceParams {
 
 
 class Services {
-  static getHeaders = () => {
+  static getHeaders = (isFile?: boolean) => {
     let headers = new Headers();
+    if (!isFile) {
+      headers.append("Content-Type", "application/json");
+    }
     headers.append("Accept", "application/json");
-    headers.append("Access-Control-Allow-Origin", " * ");
+    headers.append("Access-Control-Allow-Origin", "*/*");
     headers.append("Credentials", "same-origin");
+    //headers.append("Accept-Language", `${Cookies.get('language') || "fr"};q=0.9`);
     return headers;
   };
 
-  static getHeadersAuth = () => {
+  static getHeadersAuth = (isFile?: boolean) => {
 
-    let headers = Services.getHeaders();
+    let headers = Services.getHeaders(isFile);
     let access_token = Cookies.get("user_credential")?.toString()
     if (access_token === null) {
       window.location.reload();

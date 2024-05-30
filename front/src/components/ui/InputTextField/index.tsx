@@ -24,7 +24,6 @@ export default function InputTextField(props: React.PropsWithChildren<FormInput>
     } = props
 
     const randomString = generateRandomString(10)
-    console.log(label)
 
     return(
         <div className={`w-full flex flex-col gap-1`}>

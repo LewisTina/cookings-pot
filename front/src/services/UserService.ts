@@ -16,6 +16,13 @@ class UserServices {
       required_auth: false
     });
 
+  static register = (data: any) =>
+    BaseService.postRequest({
+      url: UserUrl.POST_REGISTER,
+      body: data,
+      required_auth: false
+    });
+
   /* Put Requests */
 }
 

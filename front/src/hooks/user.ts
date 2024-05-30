@@ -12,6 +12,12 @@ export function useUser() {
     const { user, setUser} = useContext(UserSession);
     
     const { getResponse } = useCheckResponse()
+
+    const register = (data: any) => 
+        UserServices.register(data).then(async (res: any) => {
+            const response = await getResponse(res)
+            return response
+        })
     
     const login = (data: any) => 
         UserServices.login(data).then(async (res: any) => {
@@ -37,6 +43,7 @@ export function useUser() {
 
     return {
         login,
+        register,
         authMe,
         user,
     }

@@ -1,0 +1,145 @@
+.coverFrame {
+    height: calc(100svh - 4.35rem);
+    @apply flex flex-col w-full border-t;
+
+    * {
+        @apply
+        transition-all
+        duration-300
+    }
+
+    & > div {
+        @apply w-full max-w-[1536px] mx-auto;
+    }
+}
+
+.fakeHeader {
+    @apply flex justify-between px-4 py-6;
+}
+
+.fakeLogo {
+    font-family: var(--galada);
+    @apply text-black-1 text-3xl;
+
+    b {
+        @apply text-primary-1
+    }
+}
+
+.lastAdd {
+    @apply flex-1 flex py-8 px-4;
+
+    & > div {
+        @apply flex w-1/2
+    }
+
+    &.expand {
+        @apply py-0 px-0;
+
+        .intro {
+            @apply hidden
+        }
+
+        .floatingButton {
+            @apply block
+        }
+
+        .imageWrapper {
+            @apply
+            sticky
+            top-0
+            left-0
+            w-full
+            h-full
+            rounded-none;
+        
+            &:hover {
+                @apply 
+                m-0 
+                w-full
+                h-full
+            }
+        }
+    }
+}
+
+.left {
+    @apply relative;
+
+    & > div {
+        @apply flex w-1/2
+    }
+}
+
+.floatingButton {
+    @apply
+    absolute
+    right-4
+    top-4
+    bg-white-1
+    hidden
+}
+
+.imageWrapper {
+    @apply
+    absolute
+    top-0
+    left-1/2
+    w-1/2
+    h-full
+    rounded-xl
+    overflow-hidden
+    cursor-pointer;
+
+    &:hover {
+        @apply 
+        -m-4 
+        w-[calc(50%+2rem)]
+        h-[calc(100%+2rem)]
+    }
+}
+
+.intro {
+    @apply w-1/2 p-8 pl-0 flex flex-col justify-end gap-2;
+
+    h1 {
+        font-family: var(--galada);
+        @apply text-xl text-neutral-5;
+    }
+}
+
+.rate {
+    @apply flex gap-1 text-primary-1;
+}
+
+.image {
+    @apply object-cover object-center
+}
+
+.right {
+    @apply px-20 pb-36 flex flex-col gap-4;
+
+    h2 {
+        @apply text-4xl mt-auto;
+    }
+
+    .button {
+        @apply 
+        text-lg 
+        font-medium 
+        text-primary-1 
+        border-b-4 
+        border-primary-1 
+        w-fit 
+        py-3 
+        cursor-pointer;
+
+        &:hover {
+            @apply
+            bg-primary-1
+            text-white
+            px-6
+            border-transparent 
+        }
+    }
+}

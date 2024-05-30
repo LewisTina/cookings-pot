@@ -28,7 +28,6 @@ export default function LoginFrom() {
         await mutateAsync(bodyData)
     }
 
-
     useEffect(() => {
         if (isSuccess) {
             if (data.status == 200) {
@@ -45,7 +44,6 @@ export default function LoginFrom() {
             }
         }
     }, [isSuccess, data, previousRouter, router])
-    
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>

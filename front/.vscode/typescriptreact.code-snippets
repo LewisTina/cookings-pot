@@ -1,0 +1,17 @@
+{
+	"React SCSS Module Div": {
+		"prefix": "div-",
+		"body": [
+		"<div className={styles.$1}>$0</div>"
+		],
+		"description": "Create a div with dynamic class from SCSS module"
+	},
+
+	"React SCSS Module Span": {
+		"prefix": "span-",
+		"body": [
+		"<span className={styles.$1}>$0</span>"
+		],
+		"description": "Create a span with dynamic class from SCSS module"
+	}
+}

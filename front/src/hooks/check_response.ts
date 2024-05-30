@@ -10,7 +10,7 @@ const useCheckResponse = () => {
           if(data) {
             OpenAlert({
                 status: res.status,
-                message: data.message_key,
+                message: data.message,
             });
           }
           const response = {status: res.status, data: data}

@@ -1,0 +1,29 @@
+.headerFrame {
+    @apply w-full border-t border-b p-4 border-neutral-2 sticky top-0;
+    box-shadow: 0px -8px 16px 0px rgba(var(--primary-1), 0.05);
+}
+
+.headerContent {
+    @apply w-full max-w-[1536px] flex justify-between mx-auto
+}
+
+.menuContent {
+    @apply flex gap-2
+}
+
+.searchBar {
+    @apply flex flex-1 items-center
+}
+
+.input {
+    all: unset;
+    @apply text-sm flex flex-1 px-4 leading-6  [&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-decoration]:appearance-none [&::-webkit-search-results-button]:appearance-none [&::-webkit-search-results-decoration]:appearance-none;
+}
+
+.navItem {
+    @apply flex text-sm p-2 rounded-full font-medium text-neutral-6;
+
+    &.active {
+        @apply bg-neutral-3 font-semibold px-6 text-black-1;
+    }
+}
