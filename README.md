@@ -49,3 +49,9 @@ Configuré pour tourner sur le port 2781 du localhost [http://localhost:2781](ht
 - [@Vincent FERRAG](https://github.com/Vincentfrg)
 - [@Taha Idriss ELAKRAMINE](https://github.com/)
 
+
+## Documentation
+
+Consigne d'utilisation assez simple.
+Pour l'utilisation des fonctionnalités reservées aux memebres, la création d'un compte s'effectue en 2 minutes, via un seul formulaire (Aucune restrictions ou exigence)
+
