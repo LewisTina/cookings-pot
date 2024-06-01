@@ -1,5 +1,5 @@
 .frame {
-    @apply w-full flex min-h-[100dvh] h-full overflow-auto mdd:h-[unset] mdd:pr-0 mdd:pt-0 mdd:min-h-[unset] mdd:overflow-visible;
+    @apply w-full flex;
 
     & > div {
         @apply w-1/2
@@ -7,7 +7,7 @@
 }
 
 .left {
-    @apply flex-1 bg-cover bg-center relative;
+    @apply flex-1 h-[100dvh] bg-cover bg-center sticky top-0;
 
     &::before {
         content: "";
@@ -19,7 +19,7 @@
 }
 
 .formContent {
-    @apply flex flex-col p-20 h-full overflow-auto smd:py-20 smd:px-4 smd:w-full md:w-fit md:mx-auto bg-white-1 border-l border-neutral-3;
+    @apply min-h-[100dvh] flex flex-col p-20 h-full overflow-auto smd:py-20 smd:px-4 smd:w-full md:w-fit md:mx-auto bg-white-1;
 
     form {
         @apply flex flex-col gap-8 my-auto w-fit;

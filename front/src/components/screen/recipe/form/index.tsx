@@ -9,7 +9,7 @@ import { useMutation } from "react-query";
 import CustomSelect from "@/components/ui/InputTextField/select";
 import IconButton from "@/components/ui/icon_button";
 import { useState } from "react";
-import { readFilesAsBase64 } from "@/utils";
+import { ingredientUnit, readFilesAsBase64 } from "@/utils";
 
 export default function RecipeForm() {
     const params = useParams()
@@ -102,13 +102,13 @@ export default function RecipeForm() {
                                 name={`ingredients[${e}].unit`}
                                 label={"Unité"} 
                                 controller={register}>
-                                    <option value="-">--</option>
-                                    <option value="g">g</option>
-                                    <option value="cl">cl</option>
-                                    <option value="cas">Cuillère à soupe</option>
-                                    <option value="pk">Paquet</option>
-                                    <option value="pk">Sachet</option>
-                                    <option value="pk">Pincée</option>
+                            {
+                                Object.keys(ingredientUnit).map((e) => {
+                                    return (
+                                        <option value={e} key={e}>{ingredientUnit[e]}</option>
+                                    )
+                                })
+                            }
                             </CustomSelect>
                             <div className="flex gap-4">
                                 <IconButton 

@@ -47,3 +47,13 @@ export const readBufferImage = (cover: Buffer) => {
 		return dataUrl
 	}
 }
+
+export const ingredientUnit: {[key: string] : string} = {
+	"-": "",
+	"g": "g",
+	"cl": 'cl',
+	"cas": "Cuillère à soupe",
+	"pk": "Paquet",
+	"sc": "Sachet",
+	"pic": "Pincée"
+}

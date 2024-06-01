@@ -51,7 +51,7 @@ exports.getRecipesByCategoryId = async (req, res) => {
 exports.getRecipeById = async (req, res) => {
     const {id} = req.params
     try {
-        const recipe = await Recipe.findById(id);
+        const recipe = id == "last" ? await Recipe.findOne({}) : await Recipe.findById(id);
         if(!!recipe) {
             const id = recipe._id
             const ingredientsR = await IngredientRecipe.find({idRecipe: id});

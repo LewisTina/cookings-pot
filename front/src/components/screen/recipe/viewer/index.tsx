@@ -4,7 +4,7 @@ import { useRecipe } from '@/hooks/recipe'
 import { useQuery } from 'react-query'
 import { useEffect, useState } from 'react'
 import Loader from '@/components/ui/loader'
-import { readBufferImage } from '@/utils'
+import { ingredientUnit, readBufferImage } from '@/utils'
 import styles from './viewer.module.scss'
 
 export default function RecipeViewer() {
@@ -14,7 +14,7 @@ export default function RecipeViewer() {
     const { data: _data, isFetching } = useQuery(['my_recipes', recipeId], () => readRecipe(recipeId), {enabled: !!recipeId})
     const result = _data?.data;
     const data = result?.recipe;
-    const ingredient = result?.data
+    const ingredients = result?.ingredients
     const [imageSrc, setImageSrc] = useState<string|undefined>(undefined);
     const cover = data?.images[0]
 
@@ -28,7 +28,7 @@ export default function RecipeViewer() {
             notFound()
         }
     }, [_data?.status, recipeId])
-    
+
     return(
         isFetching ? <Loader/> :
         <div className={styles.frame}>
@@ -40,7 +40,7 @@ export default function RecipeViewer() {
                             src={imageSrc} 
                             height={500}
                             width={500}
-                            className='h-auto w-full'
+                            className='h-auto w-full rounded-2xl'
                             alt={`${data?.title} image`}/>
                     }
                 </div>
@@ -52,7 +52,32 @@ export default function RecipeViewer() {
                     {data.description}
                 </p>
                 <h2>{"Ingredients"}</h2>
+                    {
+                        ingredients?.length > 0 &&
+                        <div className={styles.ingredientsList}>
+                            {ingredients.map((e: any) => {
+                                console.log(e)
+                                return(
+                                    <IngredientCard key={e._id} e={e}/>
+                                )
+                            })}
+                        </div>
+                    }
                 <h2>{"Etapes"}</h2>
+            </div>
+        </div>
+    )
+}
+
+const IngredientCard = (props: {e: any}) => {
+    const [isChecked, setIsChecked] = useState(false)
+    const {e} = props
+    return (
+        <div className={`${styles.ingredient} ${isChecked?styles.checked:''}`} key={e._id} onClick={()=>{setIsChecked(!isChecked)}}>
+            <div className={styles.image}></div>
+            <div className={styles.desc}>
+                <span className="font-medium text-xl">{e.quantity} {ingredientUnit[e.unit]}</span> <br/>
+                <span>{e.name}</span>
             </div>
         </div>
     )

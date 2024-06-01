@@ -28,9 +28,9 @@ export default function AccountLayout({children}: AccountLayoutProps){
         return (
           <Loader/>
         )
-    } else {
+    } else if(user) {
         return(
-            <div className="flex w-full min-h-full h-fit overflow-auto">
+            <div className="flex w-full">
                 <SideBar/>
                 <div className="flex flex-col flex-1 p-8 h-fit min-h-full">
                     {children}

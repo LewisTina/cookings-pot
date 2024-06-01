@@ -26,7 +26,7 @@ export default function RootLayout({
       <html  lang={"fr"}>
         <body className='bg-neutral-0'>
           <Providers>
-            <main className="h-[100dvh] w-full relative flex flex-col items-center">
+            <main className="w-full relative flex flex-col items-center">
                 {children}
             </main>
           </Providers>
