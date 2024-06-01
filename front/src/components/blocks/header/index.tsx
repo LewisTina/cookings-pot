@@ -56,6 +56,7 @@ export function FakeHeader()  {
                 icon='UserIcon'
                 onClick={()=> {router.push('/account')}}
                 iconPosition='left'
+                className='ml-auto'
                 label={'Mon compte'}/>
         </div>
     )

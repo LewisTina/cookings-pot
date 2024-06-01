@@ -29,5 +29,5 @@
 }
 
 .fakeHeader {
-    @apply flex justify-between px-4 py-6 w-full max-w-[1536px];
+    @apply grid grid-cols-3 items-end p-4 w-full max-w-[1536px];
 }

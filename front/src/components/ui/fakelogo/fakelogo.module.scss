@@ -1,8 +1,8 @@
 .fakeLogo {
     font-family: var(--galada);
-    @apply text-black-1 text-3xl;
+    @apply text-black-1 text-3xl self-center text-center;
 
-    b {
+    span {
         @apply text-primary-1
     }
 }

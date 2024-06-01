@@ -53,9 +53,40 @@ exports.getRecipeById = async (req, res) => {
     try {
         const recipe = await Recipe.findById(id);
         if(!!recipe) {
-            res.status(200).json({ 
-                data: recipe, 
-            });
+            const id = recipe._id
+            const ingredientsR = await IngredientRecipe.find({idRecipe: id});
+            let ingredients = []
+
+            try {
+                if (ingredientsR.length > 0) {
+                    ingredients = await Promise.all(ingredientsR.map(async (e) => {
+                        const ingredient = await Ingredient.findById(e.idIngredient);
+                        if (ingredient) {
+                            return {
+                                id: e._id,
+                                unit: e.unit,
+                                quantity: e.quantity,
+                                name: ingredient.name,
+                                image: ingredient.image
+                            };
+                        } else {
+                            return {
+                                id: e._id,
+                                unit: e.unit,
+                                quantity: e.quantity,
+                                name: null,
+                                image: null
+                            };
+                        }
+                    }));
+                }
+            } catch (error) {
+                console.error(error);
+            } finally {
+                res.status(200).json({
+                    data: { recipe, ingredients },
+                });
+            }
         } else {
             res.status(404).json({ 
                 message: "Recette introuvable" 
@@ -99,7 +130,7 @@ exports.createRecipe = async (req, res) => {
                     const newIngredientsRecipe = new IngredientRecipe({ 
                         unit: e.unit, 
                         quantity: e.quantity, 
-                        id: Recipe._id,  
+                        idRecipe: RecipeValue._id,  
                         idIngredient: ingredient._id
                     })
 

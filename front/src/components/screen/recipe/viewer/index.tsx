@@ -12,7 +12,9 @@ export default function RecipeViewer() {
     const recipeId = params.id as string
     const { readRecipe } = useRecipe()
     const { data: _data, isFetching } = useQuery(['my_recipes', recipeId], () => readRecipe(recipeId), {enabled: !!recipeId})
-    const data = _data?.data
+    const result = _data?.data;
+    const data = result?.recipe;
+    const ingredient = result?.data
     const [imageSrc, setImageSrc] = useState<string|undefined>(undefined);
     const cover = data?.images[0]
 

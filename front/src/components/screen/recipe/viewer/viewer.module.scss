@@ -1,9 +1,9 @@
 .frame {
-    @apply w-full max-w-[1536px] grid grid-cols-2 mx-auto p-8;
+    @apply w-full max-w-[1536px] grid grid-cols-2 mx-auto py-8 px-4 gap-10;
 }
 
 .content {
-    @apply px-8 flex flex-col gap-8;
+    @apply flex flex-col gap-8;
 
     h1 {
         @apply text-6xl font-medium;
