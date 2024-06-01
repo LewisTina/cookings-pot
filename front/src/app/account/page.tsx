@@ -1,31 +1,15 @@
 "use client"
 import { useRouter } from "next/navigation";
-import { useForm } from "react-hook-form";
-import InputTextField from "@/components/ui/InputTextField";
+import { useRecipe } from "@/hooks/recipe";
+import { useUser } from "@/hooks/user";
+import { useQuery } from "react-query";
+import Loader from "@/components/ui/loader";
+import UserRecipes from "@/components/screen/recipe/user";
 
 export default function Account(){
-    const { register, handleSubmit, formState: {errors} } = useForm();
-
-    /* const {
-      data,
-      isLoading,
-      isSuccess,
-      mutateAsync
-      } = useMutation() */
-
-    const onSubmit = async (bodyData: any) => {
-        //await mutateAsync(bodyData)
-    }
-
-    return(
-        <form onSubmit={handleSubmit(onSubmit)} className={`flex flex-col px-3 pb-3 w-full gap-8`}>
-            <InputTextField
-                placeholder={('Nom de la recette')} 
-                controller={register} 
-                formError={errors}
-                label={"Titre"}
-                autoComplete='off'
-                name={'title'}/>
-        </form>
-    )
+    const { user } = useUser()
+    const { getUserRecipes } = useRecipe()
+    const { data, isFetching } = useQuery('my_recipes', getUserRecipes, {enabled: !!user})
+    
+    return(isFetching ? <Loader/> :<UserRecipes data={data?.data}/>)
 }

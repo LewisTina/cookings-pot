@@ -6,7 +6,6 @@ const jwt = require('jsonwebtoken');
 
 exports.getRecipes = async (req, res) => {
     const Recipes = await Recipe.find();
-    console.log(Recipes)
     res.json(Recipes);
 };
 

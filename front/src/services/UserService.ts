@@ -14,7 +14,7 @@ class UserServices {
   })
 
   static getUserRecipes = () => BaseService.getRequest({
-    url: `${UserUrl.RECIPE}/member`,
+    url: `${UserUrl.RECIPE}/user/recipes`,
     required_auth: true
   })
 
