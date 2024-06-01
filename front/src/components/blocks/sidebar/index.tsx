@@ -7,6 +7,7 @@ import { useRef, useState } from 'react'
 import { useOutsideClick } from '@/hooks/outside_click'
 import IconButton from '@/components/ui/icon_button'
 import { useRouter } from 'next/navigation'
+import FakeLogo from '@/components/ui/fakelogo'
 
 export default function SideBar() {
     const { user } = useUser()
@@ -23,15 +24,20 @@ export default function SideBar() {
     return (
         <div className={styles.sideBar}>
             <div className=" flex justify-between items-center">
-                <span className={styles.fakeLogo}>
-                    {"Cooking"} <b>{"Pot's"}</b>
-                </span>
-                <IconButton 
-                    icon={'PlusIcon'}
-                    onClick={()=>{router.push("/account/recipe/new")}} 
-                    className='bg-primary-1'/>
+                <FakeLogo/>
             </div>
-            <div className={styles.content}></div>
+            <div className={styles.content}>
+                <CustomButton 
+                    size="medium"
+                    className='!w-full !justify-between'
+                    theme='primary'
+                    icon="PlusIcon"
+                    iconPosition="right"
+                    iconClassName="w-6 h-6"
+                    type='button'
+                    onClick={()=>{router.push("/account/recipe/new")}} 
+                    label={"Créer une recette"}/>
+            </div>
             <div ref={ref} className="relative -m-4">
                 {
                     isMenuOpen &&
@@ -43,7 +49,7 @@ export default function SideBar() {
                             iconPosition="left"
                             iconClassName="w-6 h-6"
                             type='button'
-                            label={"Se déconnecter"}/>
+                            label={"Modifier les informations"}/>
                         <CustomButton 
                             size="medium"
                             theme='delete'
@@ -51,7 +57,7 @@ export default function SideBar() {
                             iconPosition="left"
                             iconClassName="w-6 h-6"
                             type='button'
-                            label={"Se déconnecter"}/>
+                            label={"Confidentialité"}/>
                         <CustomButton 
                             size="medium"
                             theme='delete'

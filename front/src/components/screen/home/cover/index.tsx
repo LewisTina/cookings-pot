@@ -6,6 +6,7 @@ import Icon from '@/components/Icons'
 import { useState } from 'react'
 import IconButton from '@/components/ui/icon_button'
 import { useRouter } from 'next/navigation'
+import FakeLogo from '@/components/ui/fakelogo'
 
 export default function Cover() {
     const imageUrl = '/3215.jpg'
@@ -15,12 +16,8 @@ export default function Cover() {
     return (
         <div className={styles.coverFrame}>
             <div className={styles.fakeHeader}>
-                <span></span>
-
-                <span className={styles.fakeLogo}>
-                    {"Cooking"} <b>{"Pot's"}</b>
-                </span>
-
+                <span></span>                
+                <FakeLogo/>
                 <CustomButton 
                     size='medium'
                     theme='primary'

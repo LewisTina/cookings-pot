@@ -1,0 +1,34 @@
+.file {
+    @apply
+    block
+    text-sm
+    text-slate-500
+    file:mr-4
+    mt-2
+    file:py-2
+    file:px-4
+    file:rounded-full
+    file:border-0
+    file:text-sm
+    file:font-semibold
+    file:bg-primary-1
+    file:text-white
+    hover:file:bg-primary-1/25
+}
+
+.input {
+    @apply
+    py-3 px-4 
+    bg-transparent text-black-1
+    border-2 border-neutral-3 
+    transition-all
+    rounded-xl
+    focus:ring
+    focus:border-blue-400
+    w-96 smd:max-w-full smd:w-full
+    outline-none
+}
+
+.error {
+    @apply focus:border-secondary-1 ring-secondary-1/50 ring
+}

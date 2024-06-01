@@ -2,6 +2,10 @@
     @apply w-80 p-8 bg-primary-1/5 flex flex-col justify-between gap-8 sticky top-0;
 }
 
+.content {
+    flex: 1;
+}
+
 .sideBarFooter {
     @apply rounded-3xl bg-neutral-2 border border-neutral-3 p-2 flex gap-2 items-center cursor-pointer relative;
 
@@ -15,6 +19,7 @@
 
     button {
         width: 100%;
+        @apply rounded-2xl;
 
         &:not(:last-child) {
             @apply bg-neutral-3 justify-end text-black-1;
@@ -40,14 +45,5 @@
         &:last-child {
             @apply text-xs text-ellipsis inline-block whitespace-nowrap overflow-hidden;
         }
-    }
-}
-
-.fakeLogo {
-    font-family: var(--galada);
-    @apply text-black-1 text-3xl;
-
-    b {
-        @apply text-primary-1
     }
 }

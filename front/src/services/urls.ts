@@ -5,4 +5,5 @@ export const UserUrl = {
     POST_LOGIN: `${prefix}members/login`,
     POST_REGISTER: `${prefix}members/register`,
     AUTH_ME: `${prefix}members/auth/me`,
+    RECIPE: `${prefix}recipes`
 };

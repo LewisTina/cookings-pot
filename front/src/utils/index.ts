@@ -16,3 +16,24 @@ export function generateRandomString(length: number): string {
 
     return result;
 }
+
+export const readFilesAsBase64 = (selectedFiles: FileList | null): Promise<string[]> => {
+	const base64Promises: Promise<string>[] = [];
+  
+	if (!!selectedFiles && selectedFiles.length > 0) {
+	  Array.from(selectedFiles).forEach((file: File) => {
+		const reader = new FileReader();
+		const promise: Promise<string> = new Promise((resolve) => {
+		  reader.onload = () => {
+			const base64 = reader.result as string;
+			resolve(base64);
+		  };
+		});
+  
+		reader.readAsDataURL(file);
+		base64Promises.push(promise);
+	  });
+	}
+  
+	return Promise.all(base64Promises);
+};

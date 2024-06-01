@@ -38,7 +38,7 @@ export default function IconButton(props: Props) {
 
     return (
         <button 
-            className={`flex items-center w-fit disabled:opacity-35 rounded-full aspect-square ${buttonPadding} ${className ?? ''} transition-all duration-300`}
+            className={`flex items-center justify-center w-fit disabled:opacity-35 rounded-full aspect-square ${buttonPadding} ${className ?? ''} transition-all duration-300`}
             type={type ?? 'button'}
             onClick={
                 !!props.disabled 

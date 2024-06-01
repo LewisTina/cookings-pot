@@ -31,13 +31,7 @@ export default function CustomButton(props: Props) {
 
     return (
         <button 
-            className={`
-                ${styles.buttonLayout}
-                ${iconPosition ? styles[iconPosition] : ''}
-                ${size ? styles[size] : ''}
-                ${theme ? styles[theme] : styles['neutral']}
-                ${className ?? ''}
-            `}
+            className={`${styles.buttonLayout} ${iconPosition ? styles[iconPosition] : ''} ${size ? styles[size] : ''} ${theme ? styles[theme] : styles['neutral']} ${className ?? ''}`}
             type={type ?? 'button'}
             onClick={
                 !!props.disabled 
