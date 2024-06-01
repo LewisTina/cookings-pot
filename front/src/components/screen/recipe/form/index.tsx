@@ -57,8 +57,6 @@ export default function RecipeForm() {
             files: base64_files
         }
 
-        console.log(postData)
-
         await mutateAsync(postData)
     }
 
@@ -109,6 +107,8 @@ export default function RecipeForm() {
                                     <option value="cl">cl</option>
                                     <option value="cas">Cuillère à soupe</option>
                                     <option value="pk">Paquet</option>
+                                    <option value="pk">Sachet</option>
+                                    <option value="pk">Pincée</option>
                             </CustomSelect>
                             <div className="flex gap-4">
                                 <IconButton 

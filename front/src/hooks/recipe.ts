@@ -17,9 +17,17 @@ export function useRecipe() {
             const response = {status: res.status, data: data}
             return response
         })
+
+    const getRecipes = () => 
+        UserServices.getRecipes().then(async (res: any) => {
+            let data = await res.json();
+            const response = {status: res.status, data: data}
+            return response
+        })
     
     return {
         createRecipe,
         getUserRecipes,
+        getRecipes
     }
 }
