@@ -2,7 +2,7 @@ import Icon from '../../Icons';
 import styles from './CustomButton.module.scss'
 
 type Props = {
-    theme?: "neutral" | "custom" | "primary";
+    theme?: "neutral" | "custom" | "primary" | "delete";
     disabled?: boolean;
     size?: "medium" | "small" | "full";
     icon?: string;
@@ -58,7 +58,7 @@ export default function CustomButton(props: Props) {
 
             {
                 icon &&
-                <Icon name={icon} className={iconClassName}/>
+                <Icon name={icon} className={iconClassName} type='outline'/>
 
             }
 

@@ -9,9 +9,9 @@ export default function Login() {
     const router = useRouter()
 
     useEffect(() => {
-        const userToken = Cookies.get("user_credential");
+        const userToken = Cookies.get("credential");
         if (userToken != undefined) {
-          router.replace("/")
+          router.replace("/account")
         }
       }
     )

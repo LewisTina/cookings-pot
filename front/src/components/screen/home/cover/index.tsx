@@ -5,9 +5,11 @@ import Image from 'next/image'
 import Icon from '@/components/Icons'
 import { useState } from 'react'
 import IconButton from '@/components/ui/icon_button'
+import { useRouter } from 'next/navigation'
 
 export default function Cover() {
     const imageUrl = '/3215.jpg'
+    const router = useRouter()
     const [expand, setExpanded] = useState(false)
 
     return (
@@ -23,6 +25,7 @@ export default function Cover() {
                     size='medium'
                     theme='primary'
                     icon='UserIcon'
+                    onClick={()=> {router.push('/account')}}
                     iconPosition='left'
                     label={'Mon compte'}/>
             </div>

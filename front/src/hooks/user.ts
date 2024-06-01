@@ -30,9 +30,9 @@ export function useUser() {
             let data = await res.json();
             if(res.status != 200) {
                 if(pagePath != '/' && pagePath != '') {
-                    router.replace(`/login?redirect=${pagePath}`)
+                    router.replace("/auth/login?redirect=/account")
                 } else {
-                    router.replace(`/login`)
+                    router.replace("/auth/login")
                 }
                 return data
             } else {

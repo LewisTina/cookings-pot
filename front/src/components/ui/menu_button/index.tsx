@@ -1,4 +1,3 @@
-import { useI18n , defineLocale} from '@/locales/client'
 import Icon from "../../Icons"
 import styles from './menu_button.module.scss'
 
@@ -10,7 +9,6 @@ const MenuButton = (props: {
     active?: boolean
 }) => {
     const {icon, label, className, onClick, active} = props
-    const t = useI18n()
 
     return(
         <button className={`${styles.menuButton} ${active ? styles.active : ''} ${className ?? ''}`} onClick={onClick}>
@@ -18,7 +16,7 @@ const MenuButton = (props: {
                 icon &&
                 <Icon name={icon}/>
             }
-            <span> {t(label as any, {})} </span>
+            <span> {label} </span>
         </button>
     )
 }

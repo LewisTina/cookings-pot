@@ -1,0 +1,53 @@
+.sideBar {
+    @apply w-80 p-8 bg-primary-1/5 flex flex-col justify-between gap-8 sticky top-0;
+}
+
+.sideBarFooter {
+    @apply rounded-3xl bg-neutral-2 border border-neutral-3 p-2 flex gap-2 items-center cursor-pointer relative;
+
+    &:hover {
+        @apply  bg-neutral-3
+    }
+}
+
+.menu {
+    @apply absolute bottom-[calc(100%+1rem)] bg-neutral-2 border border-neutral-3 w-full p-2 left-0 rounded-3xl flex flex-col gap-2;
+
+    button {
+        width: 100%;
+
+        &:not(:last-child) {
+            @apply bg-neutral-3 justify-end text-black-1;
+        }
+    }
+}
+
+.image {
+    @apply h-16 p-2 aspect-square rounded-full overflow-hidden bg-neutral-3;
+
+    img {
+        width: 100%;
+    }
+}
+
+.informations {
+    @apply flex-1;
+
+    span {
+        &:first-child {
+            @apply text-base font-bold text-ellipsis inline-block whitespace-nowrap overflow-hidden;
+        }
+        &:last-child {
+            @apply text-xs text-ellipsis inline-block whitespace-nowrap overflow-hidden;
+        }
+    }
+}
+
+.fakeLogo {
+    font-family: var(--galada);
+    @apply text-black-1 text-3xl;
+
+    b {
+        @apply text-primary-1
+    }
+}

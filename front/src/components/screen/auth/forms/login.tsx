@@ -31,14 +31,14 @@ export default function LoginFrom() {
     useEffect(() => {
         if (isSuccess) {
             if (data.status == 200) {
-                Cookies.set('user_credential', data.data.token.access_token);
+                Cookies.set('credential', data.data.token);
                 setTimeout(() => {
                     if(!!previousRouter){
                         router.replace(previousRouter)
                     }
 
                     else{
-                        router.replace("/")
+                        router.replace("/account")
                     }
                 }, 1000)
             }

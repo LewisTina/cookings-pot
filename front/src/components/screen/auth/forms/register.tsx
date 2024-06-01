@@ -27,18 +27,22 @@ export default function RegisterFrom() {
         await mutateAsync(bodyData)
     }
 
-
     useEffect(() => {
         if (isSuccess) {
             if (data.status == 201) {
                 Cookies.set('credential', data.data.token);
                 setTimeout(() => {
-                    router.replace("/")
+                    if(!!previousRouter){
+                        router.replace(previousRouter)
+                    }
+
+                    else{
+                        router.replace("/account")
+                    }
                 }, 1000)
             }
         }
     }, [isSuccess, data, previousRouter, router])
-    
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>

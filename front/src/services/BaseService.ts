@@ -16,14 +16,13 @@ class Services {
     headers.append("Accept", "application/json");
     headers.append("Access-Control-Allow-Origin", "*/*");
     headers.append("Credentials", "same-origin");
-    //headers.append("Accept-Language", `${Cookies.get('language') || "fr"};q=0.9`);
     return headers;
   };
 
   static getHeadersAuth = (isFile?: boolean) => {
 
     let headers = Services.getHeaders(isFile);
-    let access_token = Cookies.get("user_credential")?.toString()
+    let access_token = Cookies.get("credential")?.toString()
     if (access_token === null) {
       window.location.reload();
     }
@@ -33,7 +32,7 @@ class Services {
 
 
   static getToken = () => {
-    return Cookies.get("user_credential")?.toString();
+    return Cookies.get("credential")?.toString();
   }
   
   static postRequest = async (data: ServiceParams) => {
