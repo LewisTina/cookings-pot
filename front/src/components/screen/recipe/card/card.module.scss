@@ -1,11 +1,11 @@
 .frame {
-    @apply bg-neutral-3/50 p-4 pb-8 rounded-3xl flex flex-col gap-4
+    @apply bg-neutral-3/50 p-4 pb-8 rounded-3xl flex flex-col gap-4 cursor-pointer
 }
 
 .image {
     width: 100%;
     aspect-ratio: 1.2;
-    @apply bg-neutral-3/50 rounded-xl;
+    @apply bg-neutral-3/50 rounded-lg;
 
     img {
         width: 100%;

@@ -1,0 +1,24 @@
+.frame {
+    @apply w-full max-w-[1536px] grid grid-cols-2 mx-auto p-8;
+}
+
+.content {
+    @apply px-8 flex flex-col gap-8;
+
+    h1 {
+        @apply text-6xl font-medium;
+    }
+
+    h2 {
+        @apply text-5xl font-medium;
+    }
+}
+
+.gallery {
+    @apply sticky top-24 h-fit
+}
+
+.description {
+    @apply text-base;
+    white-space: pre-line;
+}

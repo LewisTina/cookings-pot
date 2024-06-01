@@ -13,19 +13,6 @@
     }
 }
 
-.fakeHeader {
-    @apply flex justify-between px-4 py-6;
-}
-
-.fakeLogo {
-    font-family: var(--galada);
-    @apply text-black-1 text-3xl;
-
-    b {
-        @apply text-primary-1
-    }
-}
-
 .lastAdd {
     @apply flex-1 flex py-8 px-4;
 

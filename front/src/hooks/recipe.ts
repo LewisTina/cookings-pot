@@ -14,20 +14,28 @@ export function useRecipe() {
     const getUserRecipes = () => 
         UserServices.getUserRecipes().then(async (res: any) => {
             let data = await res.json();
-            const response = {status: res.status, data: data}
+            const response = {status: res.status, data: data?.data}
             return response
         })
 
     const getRecipes = () => 
         UserServices.getRecipes().then(async (res: any) => {
             let data = await res.json();
-            const response = {status: res.status, data: data}
+            const response = {status: res.status, data: data?.data}
+            return response
+        })
+
+    const readRecipe = (data: string) => 
+        UserServices.readRecipe(data).then(async (res: any) => {
+            let data = await res.json();
+            const response = {status: res.status, data: data?.data}
             return response
         })
     
     return {
         createRecipe,
         getUserRecipes,
-        getRecipes
+        getRecipes,
+        readRecipe
     }
 }

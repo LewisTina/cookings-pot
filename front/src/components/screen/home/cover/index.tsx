@@ -1,31 +1,18 @@
 "use client"
-import CustomButton from '@/components/ui/button/CustomButton'
 import styles from './cover.module.scss'
 import Image from 'next/image'
 import Icon from '@/components/Icons'
 import { useState } from 'react'
 import IconButton from '@/components/ui/icon_button'
-import { useRouter } from 'next/navigation'
-import FakeLogo from '@/components/ui/fakelogo'
+import { FakeHeader } from '@/components/blocks/header'
 
 export default function Cover() {
     const imageUrl = '/3215.jpg'
-    const router = useRouter()
     const [expand, setExpanded] = useState(false)
 
     return (
         <div className={styles.coverFrame}>
-            <div className={styles.fakeHeader}>
-                <span></span>                
-                <FakeLogo/>
-                <CustomButton 
-                    size='medium'
-                    theme='primary'
-                    icon='UserIcon'
-                    onClick={()=> {router.push('/account')}}
-                    iconPosition='left'
-                    label={'Mon compte'}/>
-            </div>
+            <FakeHeader/>
             <div className={`${styles.lastAdd} ${expand ? styles.expand : ''}`}>
                 <div className={styles.left}>
                     <div className={styles.intro}>

@@ -1,9 +1,10 @@
 "use client"
-
 import Link from 'next/link'
 import styles from './header.module.scss'
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import Icon from '@/components/Icons';
+import FakeLogo from '@/components/ui/fakelogo';
+import CustomButton from '@/components/ui/button/CustomButton';
 
 interface NavItemProps {
     path: string;
@@ -33,10 +34,29 @@ export default function Header() {
 function NavItem(props: NavItemProps) {
     const {path, label} = props
     const pathname = usePathname();
+    const pathUrl = pathname.split('/')[1]
     
     return (
-        <Link href={path} className={`${pathname.includes(path) ? `${styles.active}` : ""} ${styles.navItem}`}>
+        <Link href={path} className={`${`/${pathUrl}` == path ? `${styles.active}` : ""} ${styles.navItem}`}>
             {label}
         </Link>
+    )
+}
+
+export function FakeHeader()  {
+    const router = useRouter()
+
+    return (
+        <div className={styles.fakeHeader}>
+            <span></span>                
+            <FakeLogo/>
+            <CustomButton 
+                size='medium'
+                theme='primary'
+                icon='UserIcon'
+                onClick={()=> {router.push('/account')}}
+                iconPosition='left'
+                label={'Mon compte'}/>
+        </div>
     )
 }

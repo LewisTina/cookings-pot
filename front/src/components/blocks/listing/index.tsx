@@ -3,6 +3,7 @@ import styles from './listing.module.scss'
 
 export default function listing(props: {data: any, title?: string}) {
     const { data, title } = props
+    
     return (
         <div className={styles.frame}>
             {

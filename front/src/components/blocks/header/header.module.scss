@@ -1,5 +1,5 @@
 .headerFrame {
-    @apply w-full border-t border-b p-4 border-neutral-3 bg-neutral-2 sticky top-0;
+    @apply w-full border-t border-b p-4 border-neutral-3 bg-neutral-0 sticky top-0;
     box-shadow: 0px -8px 16px 0px rgba(var(--primary-1), 0.05);
 }
 
@@ -26,4 +26,8 @@
     &.active {
         @apply bg-neutral-3 font-semibold px-6 text-black-1;
     }
+}
+
+.fakeHeader {
+    @apply flex justify-between px-4 py-6 w-full max-w-[1536px];
 }

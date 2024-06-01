@@ -5,8 +5,14 @@ const atob = require('atob');
 const jwt = require('jsonwebtoken');
 
 exports.getRecipes = async (req, res) => {
-    const Recipes = await Recipe.find();
-    res.json(Recipes);
+    try {
+        const Recipes = await Recipe.find().sort({creationDate: -1});
+        res.status(200).json({ 
+            data: Recipes
+        });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
 };
 
 exports.getMemberRecipes = async (req, res) => {
@@ -19,7 +25,7 @@ exports.getMemberRecipes = async (req, res) => {
             if(!!id) {
                 const membre = await Membre.findOne({ _id: id });
                 if(!!membre) {
-                    const Recipes = await Recipe.find({membreId: membre._id});
+                    const Recipes = await Recipe.find({membreId: membre._id}).sort({creationDate: -1});
 
                     res.status(200).json({ 
                         data: Recipes
@@ -56,7 +62,9 @@ exports.getRecipeById = async (req, res) => {
             });
         }
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        res.status(404).json({ 
+            message: "Recette introuvable" 
+        });
     }
 };
 

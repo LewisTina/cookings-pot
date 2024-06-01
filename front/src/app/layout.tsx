@@ -24,7 +24,7 @@ export default function RootLayout({
   }) {
     return (
       <html  lang={"fr"}>
-        <body>
+        <body className='bg-neutral-0'>
           <Providers>
             <main className="h-[100dvh] w-full relative flex flex-col items-center">
                 {children}

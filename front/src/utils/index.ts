@@ -37,3 +37,13 @@ export const readFilesAsBase64 = (selectedFiles: FileList | null): Promise<strin
   
 	return Promise.all(base64Promises);
 };
+
+export const readBufferImage = (cover: Buffer) => {
+	const base64String = cover ? Buffer.from(cover).toString('base64') : undefined;
+	const stringValues = base64String?.split("base64")
+	if(stringValues && stringValues.length > 1) {
+		const _val = stringValues[1]
+		const dataUrl = `data:image/png;base64,${_val}`;
+		return dataUrl
+	}
+}
