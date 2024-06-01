@@ -4,6 +4,7 @@
 
 .content {
     flex: 1;
+    @apply flex flex-col gap-4
 }
 
 .sideBarFooter {
@@ -15,7 +16,7 @@
 }
 
 .menu {
-    @apply absolute bottom-[calc(100%+1rem)] bg-neutral-2 border border-neutral-3 w-full p-2 left-0 rounded-3xl flex flex-col gap-2;
+    @apply bg-neutral-2 border border-neutral-3 w-full p-2 left-0 rounded-3xl flex flex-col gap-2;
 
     button {
         width: 100%;

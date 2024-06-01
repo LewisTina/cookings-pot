@@ -32,7 +32,7 @@ export default function AccountLayout({children}: AccountLayoutProps){
         return(
             <div className="flex w-full">
                 <SideBar/>
-                <div className="flex flex-col flex-1 p-8 h-fit min-h-full">
+                <div className="flex flex-col flex-1 p-8 h-fit min-h-screen">
                     {children}
                 </div>
             </div>

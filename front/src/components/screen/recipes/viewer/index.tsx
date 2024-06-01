@@ -85,7 +85,7 @@ export default function RecipeViewer() {
                             })}
                         </div>
                     }
-                <h2>{"Etapes"}</h2>
+                <h2>{"Préparation"}</h2>
                 {
                         data?.steps?.length > 0 &&
                         <div className={styles.ingredientsList}>

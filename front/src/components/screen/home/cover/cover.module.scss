@@ -145,3 +145,32 @@
         }
     }
 }
+
+@media (max-width: 1024px) {
+    .coverFrame {
+        @apply h-fit
+    }
+
+    .lastAdd:not(.expand) {
+        @apply flex-col h-fit gap-20;
+        & > div {
+            @apply flex w-full
+        }
+
+        .left {
+            height: 50svh;
+            @apply px-8 
+        }
+    }
+
+    .lastAdd {
+        &.expand {
+            @apply relative inset-x-0;
+            max-height: calc(100svh - 4.35rem);
+        }
+    }
+    
+    .right {
+        @apply py-20 px-8 
+    }
+}

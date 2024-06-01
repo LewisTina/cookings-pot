@@ -11,11 +11,12 @@ import { readBufferImage } from '@/utils'
 import { IngredientCard } from '../../recipes/viewer'
 import Loader from '@/components/ui/loader'
 import { useBlockPageScroll } from '@/hooks/block_scroll'
+import { useRouter } from 'next/navigation'
 
 export default function Cover() {
-    const imageUrl = '/3215.jpg'
     const [expand, setExpanded] = useState(false)
     const { readRecipe } = useRecipe()
+    const router = useRouter()
     const { data: _data, isFetching } = useQuery('last_recipes', () => readRecipe("last"))
     const result = _data?.data;
     const data = result?.recipe;
@@ -36,9 +37,18 @@ export default function Cover() {
         }
     }, [images])
 
+    const handleExpand = () => {
+        if(expand) {
+            setExpanded(!expand)
+        } else {
+            router.push("#last")
+            setExpanded(!expand)
+        }
+    }
+
     return (
          isFetching ? <Loader/> :
-        <div className={styles.coverFrame}>
+        <div className={styles.coverFrame} id='last'>
             <FakeHeader/>
             <div className={`${styles.lastAdd} ${expand ? styles.expand : ''}`}>
                 <div className={styles.left}>
@@ -58,7 +68,7 @@ export default function Cover() {
                     </div>
                     {
                         cover &&
-                        <div className={styles.imageWrapper} onClick={() => {setExpanded(!expand)}}>
+                        <div className={styles.imageWrapper} onClick={handleExpand}>
                             <Image 
                                 src={cover} 
                                 alt={'Image de la recette de la semaine'}
@@ -76,7 +86,7 @@ export default function Cover() {
                     <h2>{data.title}</h2>
                     {
                         !expand ?
-                        <div className={styles.button} onClick={() => {setExpanded(true)}}>Voir la recette</div>
+                        <div className={styles.button} onClick={handleExpand}>Voir la recette</div>
                         : 
                         <>
                             <p className={styles.description}>
@@ -93,7 +103,7 @@ export default function Cover() {
                                         })}
                                     </div>
                                 }
-                            <h2>{"Etapes"}</h2>
+                            <h2>{"Préparation"}</h2>
                             {
                                     data?.steps?.length > 0 &&
                                     <div className={styles.ingredientsList}>
