@@ -15,6 +15,7 @@ export default function RecipeForm() {
     const params = useParams()
     const { register, handleSubmit, formState: {errors}, unregister } = useForm();
     const [ingredients, setIngredients] = useState<string[]>(["0_0000"])
+    const [steps, setSteps] = useState<string[]>(["0_0000"])
     const { createRecipe } = useRecipe()
 
     const addFormBlock = (i:number) => {
@@ -32,6 +33,21 @@ export default function RecipeForm() {
         setIngredients(newList);
     }
 
+    const addStep = (i:number) => {
+        const newList = [...steps]; 
+        const now = new Date()
+        let id = now.getTime()
+        newList.splice(i, 0, `${id}_0000`)
+        setSteps(newList);
+    }
+
+    let removeStep = (i:number, stepId: string | number) => {
+        let newList = [...steps]
+        unregister(`steps[${stepId}]`)
+        newList.splice(i, 1);
+        setSteps(newList);
+    }
+
     const {
       isLoading,
       mutateAsync
@@ -39,6 +55,8 @@ export default function RecipeForm() {
 
     const onSubmit = async (d: any) => {
         const selectedFiles: FileList = d.files
+        const stepsEntries: {[key: string] : string} = d.steps
+        const ingredientsEntries: {[key: string] : any} = d.ingredients
         type base64 = string | ArrayBuffer | null
         let base64_files: base64[] = []
 
@@ -51,9 +69,18 @@ export default function RecipeForm() {
                 base64_files = val
             })
         }
+        const steps = Object.keys(stepsEntries).map((e: string) => {
+            return stepsEntries[e]
+        })
+
+        const ingredients = Object.keys(ingredientsEntries).map((e: string) => {
+            return ingredientsEntries[e]
+        })
 
         const postData = {
             ...d,
+            steps: steps,
+            ingredients: ingredients,
             files: base64_files
         }
 
@@ -72,6 +99,12 @@ export default function RecipeForm() {
                 label={"Titre"}
                 autoComplete='off'
                 name={'title'}/>
+            <InputTextArea
+                placeholder={('Description courte de la recette')} 
+                controller={register} 
+                label={"Description"}
+                autoComplete='off'
+                name={'description'}/>
             <InputTextField
                 controller={register} 
                 formError={errors}
@@ -97,6 +130,7 @@ export default function RecipeForm() {
                                 label={"Quantité"}
                                 multiple
                                 type="number"
+                                step={0.10}
                                 name={`ingredients[${e}].quantity`}/>
                             <CustomSelect 
                                 name={`ingredients[${e}].unit`}
@@ -128,12 +162,34 @@ export default function RecipeForm() {
                 })
             }
 
-            <InputTextArea
-                placeholder={('Description courte de la recette')} 
-                controller={register} 
-                label={"Description"}
-                autoComplete='off'
-                name={'description'}/>
+            <h2>{"Étapes"}</h2>
+            {
+                steps.map((e, index) => {
+                    return (
+                        <div className={styles.step} key={e}>
+                            <InputTextArea
+                                placeholder={"Description de l'étape"} 
+                                controller={register} 
+                                label={`Description de l'étape ${index + 1}`}
+                                autoComplete='off'
+                                name={`steps[${e}]`}/>
+                            <div className="flex gap-4">
+                                <IconButton 
+                                    icon={'XMarkIcon'}
+                                    onClick={() => removeStep(index, e)}
+                                    disabled ={steps.length > 1 ? false : true}
+                                    size="large"
+                                    className='bg-red-500 text-white w-12 my-1'/>
+                                <IconButton 
+                                    icon={'PlusIcon'}
+                                    onClick={() => addStep(index + 1)}
+                                    size="large"
+                                    className='bg-green-600 text-white w-12 my-1'/>
+                            </div>
+                        </div>
+                    )
+                })
+            }
 
             <CustomButton 
                 type='submit'

@@ -1,4 +1,4 @@
-import RecipeBloc from '../../screen/recipe/card'
+import RecipeBloc from '../../screen/recipes/card'
 import styles from './listing.module.scss'
 
 export default function listing(props: {data: any, title?: string}) {

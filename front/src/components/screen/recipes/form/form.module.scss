@@ -5,6 +5,10 @@
         @apply text-4xl text-center py-8 smd:text-2xl md:text-3xl font-bold mdd:truncate;
     }
 
+    h2 {
+        @apply text-3xl text-center py-8 smd:text-2xl md:text-3xl font-medium mdd:truncate;
+    }
+
     input, textarea, select {
         @apply w-full max-w-full
     }
@@ -14,5 +18,13 @@
     display: grid;
     gap: 1rem;
     grid-template-columns: 3fr 1fr 1fr minmax(104px, 104px);
+    align-items: flex-end;
+}
+
+.step {
+    width: 100%;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr minmax(104px, 104px);
     align-items: flex-end;
 }

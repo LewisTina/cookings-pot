@@ -35,7 +35,6 @@ export default function InputTextArea(props: React.PropsWithChildren<FormInput>)
                 className={`${styles.input} ${type == "file" ? styles.file : ""} ${(formError != undefined) ? (formError[name]? styles.error :"") : ""}`}
                 placeholder={placeholder}
                 onKeyUp={onChange}
-                rows={10}
                 {...rest}
                 />
         </div>

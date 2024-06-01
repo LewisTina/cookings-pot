@@ -15,7 +15,7 @@ export default function RecipeBloc(props: {data: any}) {
     }, [cover])
 
     return(
-        <Link href={`recipe/${data._id}`}>
+        <Link href={`recipes/${data._id}`}>
             <div className={styles.frame}>
                 <div className={styles.image}>
                     {

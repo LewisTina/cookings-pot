@@ -13,15 +13,30 @@
     }
 }
 
+.description {
+    @apply text-base leading-7;
+    white-space: pre-line;
+}
+
+.ingredientsList {
+    @apply flex flex-col gap-4
+}
+
 .lastAdd {
-    @apply flex-1 flex py-8 px-4;
+    @apply flex-1 flex py-8 px-4 bg-neutral-0;
+    overflow: auto;
 
     & > div {
         @apply flex w-1/2
     }
 
     &.expand {
-        @apply py-0 px-0;
+        @apply py-0 px-0 fixed inset-x-0;
+        max-height: calc(100svh - 4.35rem);
+
+        .right {
+            @apply h-fit
+        }
 
         .intro {
             @apply hidden
@@ -51,7 +66,7 @@
 }
 
 .left {
-    @apply relative;
+    @apply sticky top-0;
 
     & > div {
         @apply flex w-1/2
@@ -104,7 +119,7 @@
 }
 
 .right {
-    @apply px-20 pb-36 flex flex-col gap-4;
+    @apply p-20 flex flex-col gap-4;
 
     h2 {
         @apply text-4xl mt-auto;

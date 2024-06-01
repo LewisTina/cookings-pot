@@ -51,7 +51,10 @@ exports.getRecipesByCategoryId = async (req, res) => {
 exports.getRecipeById = async (req, res) => {
     const {id} = req.params
     try {
-        const recipe = id == "last" ? await Recipe.findOne({}) : await Recipe.findById(id);
+        const recipe = id == "last" 
+            ? await Recipe.find().sort({creationDate: -1}).limit(1).then(async (e) => {return e[0]}) 
+            : await Recipe.findById(id);
+
         if(!!recipe) {
             const id = recipe._id
             const ingredientsR = await IngredientRecipe.find({idRecipe: id});
@@ -100,7 +103,7 @@ exports.getRecipeById = async (req, res) => {
 };
 
 exports.createRecipe = async (req, res) => {
-    const {description, title, files, ingredients, category} = req.body
+    const {description, title, files, ingredients, category, steps} = req.body
     const images = files.map(base64String => Buffer.from(atob(base64String), 'binary'));
     const creationDate = new Date()
 
@@ -117,13 +120,13 @@ exports.createRecipe = async (req, res) => {
                     creationDate,
                     category,
                     images,
+                    steps,
                     membreId
                 });
         
                 const RecipeValue = await newRecipe.save();
 
-                Object.keys(ingredients).map(async (key) => {
-                    const e = ingredients[key]
+                ingredients.map(async (e) => {
                     const newIngredients = new Ingredient({ name: e.title })
                     const ingredient = await newIngredients.save();
 
