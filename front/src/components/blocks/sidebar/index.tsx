@@ -3,23 +3,31 @@ import Image from 'next/image'
 import styles from './sidebar.module.scss'
 import { useUser } from '@/hooks/user'
 import CustomButton from '@/components/ui/button/CustomButton'
-import { useRef, useState } from 'react'
+import { useContext, useRef, useState } from 'react'
 import { useOutsideClick } from '@/hooks/outside_click'
-import IconButton from '@/components/ui/icon_button'
 import { useRouter } from 'next/navigation'
 import FakeLogo from '@/components/ui/fakelogo'
+import Cookies from 'js-cookie';
+import { UserSession } from '@/context/user_session'
 
 export default function SideBar() {
     const { user } = useUser()
     const router = useRouter()
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const ref = useRef<HTMLDivElement>(null);
+    const { setUser} = useContext(UserSession);
 
     useOutsideClick(ref, () => {
         if(isMenuOpen) {
             setIsMenuOpen(false)
         }
     });
+
+    function log_out() {
+        Cookies.remove("credential")
+        setUser(undefined)
+        router.replace ("/")
+    }
     
     return (
         <div className={styles.sideBar}>
@@ -65,6 +73,7 @@ export default function SideBar() {
                         iconPosition="left"
                         iconClassName="w-6 h-6"
                         type='button'
+                        onClick={()=>{log_out()}}
                         label={"Se déconnecter"}/>
                 </div>
                 <div className={styles.sideBarFooter} onClick={()=>{setIsMenuOpen(!isMenuOpen)}}>
